@@ -28,7 +28,6 @@ Designed for amateur radio satellite operations and automation.
 - `Q` or `Ctrl+Q` in console
 - Remote UDP command (`SAT,QUIT`)
 - Automatic restart on unexpected errors
-- Can be packaged into a **single Windows EXE**
 
 ---
 
