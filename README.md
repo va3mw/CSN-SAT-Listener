@@ -70,3 +70,41 @@ Clone the repository:
 ```bash
 git clone https://github.com/YOUR_USERNAME/sat-udp-aos-listener.git
 cd sat-udp-aos-listener
+
+python sat_udp_popup.py
+
+Real-Time Message Protection (Important)
+
+This program intentionally ignores stale or queued messages, which can occur if:
+
+The PC sleeps overnight
+
+The sender queues packets and releases them all at resume
+
+How it works
+
+The program checks that TIMETOGO decreases in a way that matches real wall-clock time
+
+It requires two consecutive time-consistent packets before allowing alerts
+
+This prevents false alerts when the system resumes.
+
+Testing note
+
+When testing with manual packets, send at least two packets a second or two apart.
+
+Firewall Notes
+
+If packets are not received:
+
+Allow inbound UDP traffic on port 9932
+
+Or allow the executable when prompted by Windows Firewall
+
+Known Limitations
+
+Toast notifications use MessageBox (modal) rather than Notification Center
+
+Voice relies on PowerShell / SAPI (standard on Windows)
+
+No Linux or macOS support (by design)
